@@ -35,8 +35,6 @@ class _ExpensesState extends State<Expenses> {
       _recentlyDeletedExpense = expense;
       _registeredExpenses.remove(expense);
     });
-
-    // Show a SnackBar with an Undo button
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -44,7 +42,6 @@ class _ExpensesState extends State<Expenses> {
         action: SnackBarAction(
           label: 'Undo',
           onPressed: () {
-            // Restore the deleted expense
             setState(() {
               _registeredExpenses.add(_recentlyDeletedExpense!);
             });
